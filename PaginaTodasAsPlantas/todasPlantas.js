@@ -2,52 +2,52 @@ const plantas = [
     {
         nome: "Amora",
         nomeCientifico: "amorae do vale",
-        imgSrc: "./imagens/plantaExemplo.jpg"
+        imgSrc: "../imagens/plantaExemplo.jpg"
     },
     {
         nome: "Grama do Deserto",
         nomeCientifico: "gramae do vale",
-        imgSrc: "./imagens/plantaExemplo.jpg"
+        imgSrc: "../imagens/plantaExemplo.jpg"
     },
     {
         nome: "Amora",
         nomeCientifico: "amorae do vale",
-        imgSrc: "./imagens/plantaExemplo.jpg"
+        imgSrc: "../imagens/plantaExemplo.jpg"
     },
     {
         nome: "Amora",
         nomeCientifico: "amorae do vale",
-        imgSrc: "./imagens/plantaExemplo.jpg"
+        imgSrc: "../imagens/plantaExemplo.jpg"
     },
     {
         nome: "Amora",
         nomeCientifico: "amorae do vale",
-        imgSrc: "./imagens/plantaExemplo.jpg"
+        imgSrc: "../imagens/plantaExemplo.jpg"
     },
     {
         nome: "Amora",
         nomeCientifico: "amorae do vale",
-        imgSrc: "./imagens/plantaExemplo.jpg"
+        imgSrc: "../imagens/plantaExemplo.jpg"
     },
     {
         nome: "Grama do Deserto",
         nomeCientifico: "gramae do vale",
-        imgSrc: "./imagens/plantaExemplo.jpg"
+        imgSrc: "../imagens/plantaExemplo.jpg"
     },
     {
         nome: "Amora",
         nomeCientifico: "amorae do vale",
-        imgSrc: "./imagens/plantaExemplo.jpg"
+        imgSrc: "../imagens/plantaExemplo.jpg"
     },
     {
         nome: "Amora",
         nomeCientifico: "amorae do vale",
-        imgSrc: "./imagens/plantaExemplo.jpg"
+        imgSrc: "../imagens/plantaExemplo.jpg"
     },
     {
         nome: "Amora",
         nomeCientifico: "amorae do vale",
-        imgSrc: "./imagens/plantaExemplo.jpg"
+        imgSrc: "../imagens/plantaExemplo.jpg"
     },
 ];
 
