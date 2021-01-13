@@ -1,0 +1,18 @@
+{
+  "name": "site-inventario-botanico",
+  "version": "1.0.0",
+  "description": "Site com inventario de plantas do IFRN - Campus Parnamirim",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BioPar/site-inventario-botanico.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BioPar/site-inventario-botanico/issues"
+  },
+  "homepage": "https://github.com/BioPar/site-inventario-botanico#readme"
+}
