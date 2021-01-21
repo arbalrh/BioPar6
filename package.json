@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Site com inventario de plantas do IFRN - Campus Parnamirim",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node servidor.js"
   },
   "repository": {
     "type": "git",
