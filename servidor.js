@@ -7,7 +7,53 @@ require('dotenv').config({
 });
 const {Schema} = mongoose;
 
+/* ********** Configurando Banco de Dados ********** */
+
 mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true});
+
+const schemaPlanta = new Schema({
+    grupo: {
+        type: String,
+        enum: ['briofita', 'pteridofita', 'gimnosperma', 'angiosperma'],
+        required: true
+    },
+    nomeCientifico: {
+        type: String,
+        required: true
+    },
+    nomesPopulares: {
+        type: [String],
+        required: true
+    },
+    frutos: {
+        possui: {
+            type: Boolean,
+            required: true
+        },
+        epoca: {
+            inicio: Date,
+            fim: Date,
+        },
+        beneficios: String,
+    },
+    porte: {
+        type: String,
+        enum: ['pequeno', 'medio', 'grande'],
+        required: true
+    },
+    habito: {
+        type: String,
+        enum: ['erva', 'subarbusto', 'arbusto', 'arvore', 'liana', 'epifita', 'hemiepifita', 'parasita', 'naoSeAplica']
+    },
+    clima: String,
+    necessidadeLuzSolar: {
+        type: String, 
+        enum: ['pouca', 'media', 'alta']
+    },
+    cuidados: String,
+}) 
+
+const Planta = mongoose.model('Planta', schemaPlanta);
 
 
 
