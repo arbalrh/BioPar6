@@ -136,7 +136,16 @@ app.get("/api/planta/:id", function(req, res){
     }
 })
 
-
+app.get("/api/plantas/:pagina", function(req, res){
+    if(req.params.pagina){
+        exibirPlantas(req.params.pagina, function(err, plantas){
+            if(err) return console.error(err);
+            else res.json(plantas);
+        })
+    } else {
+        res.json({"erro": "pagina nao informada"});
+    }
+});
 
 
 
