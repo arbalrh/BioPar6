@@ -81,7 +81,30 @@ function buscarPlanta(id, done){
 }
 
 function filtrarPlantas(filtroObj, done){
-
+    Planta.find({
+        porte: {
+            $in: filtroObj.porte
+        },
+        habito: {
+            $in: filtroObj.habito
+        },
+        grupo: {
+            $in: filtroObj.grupo
+        },
+        necessidadeLuzSolar: {
+            $in: filtroObj.necessidadeLuzSolar
+        },
+        frutos: {
+            possui: {
+                $in: filtroObj.frutos.possui
+            }
+        }
+    })
+    .select('nomeCientifico nomesPopulares')
+    .exec(function(err, plantas){
+        if(err) return console.error(err);
+        else done(null, plantas);
+    })
 }
 
 function salvarPlanta(plantaObj, done){
@@ -146,6 +169,7 @@ app.get("/api/plantas/:pagina", function(req, res){
         res.json({"erro": "pagina nao informada"});
     }
 });
+
 
 
 
