@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 require('dotenv').config({
     path: path.join(__dirname, ".env")
 });
@@ -92,12 +93,10 @@ function filtrarPlantas(filtroObj, done){
             $in: filtroObj.grupo
         },
         necessidadeLuzSolar: {
-            $in: filtroObj.necessidadeLuzSolar
+            $in: filtroObj.luzSolar
         },
-        frutos: {
-            possui: {
-                $in: filtroObj.frutos.possui
-            }
+        "frutos.possui": {
+            $in: filtroObj.frutos
         }
     })
     .select('nomeCientifico nomesPopulares')
@@ -129,6 +128,7 @@ function salvarPlanta(plantaObj, done){
 /* ********** ********** */
 
 app.use(express.static('public'));
+app.use(bodyParser.urlencoded({extended: true}));
 
 /* ****** Rotas das paginas do site ****** */
 
@@ -169,6 +169,37 @@ app.get("/api/plantas/:pagina", function(req, res){
         res.json({"erro": "pagina nao informada"});
     }
 });
+
+app.post("/api/plantas", function(req, res){
+    const objJson = {};
+
+    for(let prop in req.body){
+        if(typeof req.body[prop] === "object") {
+            objJson[prop] = req.body[prop];
+        } else {
+            objJson[prop] = [];
+            objJson[prop].push(req.body[prop]);
+        }
+    }
+
+    if(!(req.body.grupo)) objJson.grupo = ["briofita", "pteridofita", "gimnosperma", "angiosperma"];
+    if(!(req.body.frutos)) objJson.frutos = [true, false];
+    if(!(req.body.porte)) objJson.porte = ["pequeno", "medio", "grande"];
+    if(!(req.body.luzSolar)) objJson.luzSolar = ["pouca", "media", "alta"];
+    if(!(req.body.habito)) objJson.habito = ['erva', 'subarbusto', 'arbusto', 'arvore', 'liana', 'epifita', 'hemiepifita', 'parasita', 'naoSeAplica']
+
+    if(req.body.frutos === "true") objJson.frutos = [true];
+    if(req.body.frutos === "false") objJson.frutos = [false];
+    if(req.body.frutos === ["true", "false"]) objJson.frutos = [true, false];
+
+    filtrarPlantas(objJson, function(err, plantas){
+        if(err) console.error(err);
+        else res.json({
+            "filtro": objJson,
+            "plantas": plantas
+        })
+    })
+})
 
 
 

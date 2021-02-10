@@ -19,6 +19,73 @@
         <h1>Nossas Plantas</h1>
     </div>
 
+    <form action="/api/plantas" method="post">
+        <fieldset>
+            <legend>Grupo</legend>
+            <input type="checkbox" name="grupo" value="briofita" id="briofita">
+            <label for="briofita">Briofitas</label>
+            <input type="checkbox" name="grupo" value="pteridofita" id="pteridofita">
+            <label for="pteridofita">Pteridofitas</label>
+            <input type="checkbox" name="grupo" value="gimnosperma" id="gimnosperma">
+            <label for="gimnosperma">Gimnospermas</label>
+            <input type="checkbox" name="grupo" value="angiosperma" id="angiosperma">
+            <label for="angiosperma">Angiospermas</label>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Frutos</legend>
+            <input type="checkbox" name="frutos" value="true" id="com">
+            <label for="com">Com Frutos</label>
+            <input type="checkbox" name="frutos" value="false" id="sem">
+            <label for="sem">Sem Frutos</label>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Porte</legend>
+            <input type="checkbox" name="porte" value="pequeno" id="portePequeno">
+            <label for="portePequeno">Pequeno</label>
+            <input type="checkbox" name="porte" value="medio" id="porteMedio">
+            <label for="porteMedio">Médio</label>
+            <input type="checkbox" name="porte" value="grande" id="porteGrande">
+            <label for="porteGrande">Grande</label>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Necessidade de Luz Solar</legend>
+            <input type="checkbox" name="luzSolar" value="pouca" id="luzPouca">
+            <label for="luzPouca">Pouca</label>
+            <input type="checkbox" name="luzSolar" value="media" id="luzMedia">
+            <label for="luzMedia">Média</label>
+            <input type="checkbox" name="luzSolar" value="alta" id="luzAlta">
+            <label for="luzAlta">Alta</label>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Habito</legend>
+            <input type="checkbox" name="habito" value="erva" id="erva">
+            <label for="erva">Erva</label>
+            <input type="checkbox" name="habito" value="arbusto" id="arbusto">
+            <label for="arbusto">Arbusto</label>
+            <input type="checkbox" name="habito" value="subarbusto" id="subarbusto">
+            <label for="subarbusto">Subarbusto</label>
+            <input type="checkbox" name="habito" value="arvore" id="arvore">
+            <label for="arvore">Arvore</label>
+            <input type="checkbox" name="habito" value="liana" id="liana">
+            <label for="liana">Liana</label>
+            <input type="checkbox" name="habito" value="epifita" id="epifita">
+            <label for="epifita">Epífita</label>
+            <input type="checkbox" name="habito" value="hemiepifita" id="hemiepifita">
+            <label for="hemiepifita">Hemiepífita</label>
+            <input type="checkbox" name="habito" value="parasita" id="parasita">
+            <label for="parasita">Parasita</label>
+            <input type="checkbox" name="habito" value="naoSeAplica" id="naoSeAplica">
+            <label for="naoSeAplica">Não se Aplica</label>
+        </fieldset>
+
+
+        <button type="submit">Enviar</button>
+    </form>
+
     <section class="plantas">
 
     </section>
