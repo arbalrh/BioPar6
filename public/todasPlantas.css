@@ -56,6 +56,94 @@ h1 {
     font-weight: 500;
 }
 
+form {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 50px;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+fieldset{
+    width: 17%;
+    min-width: 180px;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+    box-shadow: inset -2px -2px 0 #003702, inset 2px 0 #003702;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+legend {
+    background-color: #003702;
+    color: white;
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 15px 10px;
+    text-align: center;
+    font-weight: 500;
+}
+fieldset label {
+    width: 80%;
+    text-align: center;
+    margin: 5px;
+    transition: all 0.3s;
+    border-radius: 5px;
+    padding: 3px;
+    font-weight: 300;
+}
+
+fieldset label:first-of-type {
+    margin-top: 20px;
+}
+
+fieldset label:last-of-type {
+    margin-bottom: 20px;
+}
+
+fieldset label:hover {
+    cursor: pointer;
+}
+
+input[type="checkbox"]{
+    display: none;
+}
+
+input[type="checkbox"]:checked + label {
+    background-color: #003702;
+    color: white;
+}
+
+.divBotaoFiltrar {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.divBotaoFiltrar button {
+    background-color: #003702;
+    color: white;
+    font-weight: 500;
+    font-size: 1.2rem;
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
+    width: 17%;
+    min-width: 150px;
+    transition: all 0.3s;
+}
+
+.divBotaoFiltrar button:hover {
+    cursor: pointer;
+    background-color: #002501;
+}
+
 .plantas {
     display: flex;
     flex-wrap: wrap;
