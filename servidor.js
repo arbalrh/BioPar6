@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 require('dotenv').config({
     path: path.join(__dirname, ".env")
 });
@@ -127,8 +128,9 @@ function salvarPlanta(plantaObj, done){
 
 /* ********** ********** */
 
+app.use(cors());
 app.use(express.static('public'));
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.json());
 
 /* ****** Rotas das paginas do site ****** */
 
@@ -182,22 +184,20 @@ app.post("/api/plantas", function(req, res){
         }
     }
 
-    if(!(req.body.grupo)) objJson.grupo = ["briofita", "pteridofita", "gimnosperma", "angiosperma"];
-    if(!(req.body.frutos)) objJson.frutos = [true, false];
-    if(!(req.body.porte)) objJson.porte = ["pequeno", "medio", "grande"];
-    if(!(req.body.luzSolar)) objJson.luzSolar = ["pouca", "media", "alta"];
-    if(!(req.body.habito)) objJson.habito = ['erva', 'subarbusto', 'arbusto', 'arvore', 'liana', 'epifita', 'hemiepifita', 'parasita', 'naoSeAplica']
+    if(req.body.grupo.length === 0) objJson.grupo = ["briofita", "pteridofita", "gimnosperma", "angiosperma"];
+    if(req.body.frutos.length === 0) objJson.frutos = [true, false];
+    if(req.body.porte.length === 0) objJson.porte = ["pequeno", "medio", "grande"];
+    if(req.body.luzSolar.length === 0) objJson.luzSolar = ["pouca", "media", "alta"];
+    if(req.body.habito.length === 0) objJson.habito = ['erva', 'subarbusto', 'arbusto', 'arvore', 'liana', 'epifita', 'hemiepifita', 'parasita', 'naoSeAplica']
 
-    if(req.body.frutos === "true") objJson.frutos = [true];
-    if(req.body.frutos === "false") objJson.frutos = [false];
-    if(req.body.frutos === ["true", "false"]) objJson.frutos = [true, false];
+    if(req.body.frutos === ['true']) objJson.frutos = [true];
+    if(req.body.frutos === ['false']) objJson.frutos = [false];
+    if(req.body.frutos === ['true', 'false']) objJson.frutos = [true, false];
+
 
     filtrarPlantas(objJson, function(err, plantas){
         if(err) console.error(err);
-        else res.json({
-            "filtro": objJson,
-            "plantas": plantas
-        })
+        else res.json(plantas)
     })
 })
 
