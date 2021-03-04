@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body{
+    background-color: #957CB6;
+    display: flex;
+    margin-top: 150px;
+    margin-bottom: 50px;
+}
+nav {
+    background-color: #003702;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    font-family: Roboto;
+    z-index: 30;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 18px 30px;
+}
+nav li {
+    width: 20%;
+    min-width: 170px;
+}
+
+nav a {
+    color: white;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+
+}
+
+nav img {
+    width: 30px;
+    margin-right: 20px;
+}
+h1{
+    color: white;
+    background-color: #5000B5;
+    font-family: Roboto;
+    font-size: 4rem;
+    padding: 65px 0;
+    width: 70%;
+    border: 5px solid white;
+    font-weight: 500;
+    text-align: center;
+    box-shadow: 0px 6px 0px #957CB6, 0px 12px 0px white;
+    margin-bottom: 50px;
+}
+.Cabecalho{
+    width: 35%;
+    display: flex;
+    justify-content: stretch;
+    flex-direction: column;
+    align-items: center;
+}
+.Cabecalho img{
+    width: 80%;
+    border-radius: 10px;
+    box-shadow: 0px 6px 0px #957CB6, 0px 12px 0px white, 0px -6px 0px #957CB6, 0px -12px 0px white;
+}
+.Informacoes {
+    background-color: #003702;
+    color: white;
+    width: 60%;
+    border-radius: 10px;
+    padding: 40px;
+}
+.Informacoes div{
+    margin-bottom: 45px;
+}
