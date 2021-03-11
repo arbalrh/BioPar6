@@ -128,7 +128,7 @@ function salvarPlanta(plantaObj, done){
 /* ********** ********** */
 
 app.use(cors());
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 
 /* ****** Rotas das paginas do site ****** */
@@ -137,8 +137,12 @@ app.get("/", function(req, res){
     res.sendFile(__dirname + "/views/principal.html");
 })
 
-app.get("/plantas/", function(req, res){
+app.get("/plantas", function(req, res){
     res.sendFile(__dirname + "/views/todasPlantas.html");
+})
+
+app.get("/plantas/:id", function(req, res){
+    res.sendFile(__dirname + "/views/plantasIndividual.html");
 })
 
 /* ****** Rotas da Api pra consulta e postagem de dados ****** */

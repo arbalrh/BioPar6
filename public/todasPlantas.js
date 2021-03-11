@@ -56,7 +56,7 @@ form.addEventListener("submit", function(event){
                 nomePlanta.textContent = plantas[i].nomesPopulares[0].toUpperCase();
                 nomeCientifico.textContent = 'Nome científico: ' + plantas[i].nomeCientifico;
                 imgPlanta.src = '/imagens/plantaExemplo.jpg';
-                divPlanta.href = "/api/planta/" + plantas[i]._id;
+                divPlanta.href = "/plantas/" + plantas[i]._id;
                         
                 divPlanta.appendChild(nomePlanta);
                 divPlanta.appendChild(nomeCientifico);
