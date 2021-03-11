@@ -6,6 +6,20 @@ const porte = document.getElementsByName("porte");
 const luzSolar = document.getElementsByName("luzSolar");
 const habito = document.getElementsByName("habito");
 
+const botaoOpcoesFiltro = document.getElementById("botaoOpcoesFiltro");
+const botaoFecharFiltro = document.getElementById("botaoFecharFiltro");
+const secaoFiltro = document.querySelector(".filtro");
+
+botaoOpcoesFiltro.addEventListener("click", function(event){
+    secaoFiltro.style.display = "block";
+    event.target.style.display = "none";
+})
+
+botaoFecharFiltro.addEventListener("click", function(){
+    secaoFiltro.style.display = "none";
+    botaoOpcoesFiltro.style.display = "block";
+})
+
 form.addEventListener("submit", function(event){
     event.preventDefault();
 
