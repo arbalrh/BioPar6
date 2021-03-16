@@ -102,7 +102,18 @@ function filtrarPlantas(filtroObj, done){
     .select('nomeCientifico nomesPopulares')
     .exec(function(err, plantas){
         if(err) return console.error(err);
-        else done(null, plantas);
+        else {
+            const plantasPaginadas = [];
+            if(plantas.length >= (filtroObj.pagina)*10){
+                for(let i = (filtroObj.pagina)*10-10; i < (filtroObj.pagina)*10; i++)
+                    plantasPaginadas.push(plantas[i]);
+            }
+            else if(plantas.length >= (filtroObj.pagina)*10 - 10){
+                for(let i = (filtroObj.pagina)*10-10; i < plantas.length; i++) 
+                    plantasPaginadas.push(plantas[i]);
+            }
+            done(null, plantasPaginadas);
+        };
     })
 }
 
@@ -196,7 +207,7 @@ app.post("/api/plantas", function(req, res){
     if(req.body.frutos === ['true']) objJson.frutos = [true];
     if(req.body.frutos === ['false']) objJson.frutos = [false];
     if(req.body.frutos === ['true', 'false']) objJson.frutos = [true, false];
-
+    objJson.pagina = +req.body.pagina;
 
     filtrarPlantas(objJson, function(err, plantas){
         if(err) console.error(err);
