@@ -26,7 +26,7 @@ function exibirPlantas(plantas){
             nomePlanta.textContent = plantas[i].nomesPopulares[0].toUpperCase();
             nomeCientifico.textContent = 'Nome científico: ' + plantas[i].nomeCientifico;
             imgPlanta.src = '/imagens/plantaExemplo.jpg';
-            divPlanta.href = "/plantas/" + plantas[i]._id;
+            divPlanta.href = "/plantas/" + plantas[i].slug;
                         
             divPlanta.appendChild(nomePlanta);
             divPlanta.appendChild(nomeCientifico);

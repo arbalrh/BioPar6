@@ -55,6 +55,11 @@ const schemaPlanta = new Schema({
         enum: ['pouca', 'media', 'alta']
     },
     cuidados: String,
+    slug: {
+        type: String,
+        unique: true,
+        required: true
+    }
 }) 
 
 schemaPlanta.plugin(autoIncrement.plugin, 'Planta');
@@ -74,8 +79,8 @@ function exibirPlantas(pagina, done){
         })
 }
 
-function buscarPlanta(id, done){
-    Planta.findById(id, function(err, planta){
+function buscarPlanta(slug, done){
+    Planta.findOne({slug: slug}, function(err, planta){
         if(err) return console.error(err);
         else done(null, planta);
     })
@@ -152,16 +157,16 @@ app.get("/plantas", function(req, res){
     res.sendFile(__dirname + "/views/todasPlantas.html");
 })
 
-app.get("/plantas/:id", function(req, res){
+app.get("/plantas/:slug", function(req, res){
     res.sendFile(__dirname + "/views/plantasIndividual.html");
 })
 
 /* ****** Rotas da Api pra consulta e postagem de dados ****** */
 
-app.get("/api/planta/:id", function(req, res){
-    if(req.params.id){
+app.get("/api/planta/:slug", function(req, res){
+    if(req.params.slug){
         try{
-            buscarPlanta(req.params.id, function(err, planta){
+            buscarPlanta(req.params.slug, function(err, planta){
                 if(err) return console.error(err);
                 else {
                     res.json(planta);
